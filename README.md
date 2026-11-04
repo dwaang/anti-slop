@@ -25,6 +25,10 @@ Use $anti-slop to shorten this text without changing its meaning:
 
 Automatic selection depends on the host and the request. `agents/openai.yaml` permits implicit invocation; it cannot force a host to load the skill. A `metadata.triggers` list is not an activation hook. For other assistants, follow their documented skill discovery mechanism or supply `SKILL.md` explicitly; installation paths are not interchangeable.
 
+## Punctuation
+
+Use words and ordinary sentence structure instead of em or en dashes. Keep other dashes to a minimum. This applies to prose, not required code, URLs or minus signs.
+
 ## Examples
 
 ### Interface (RU)

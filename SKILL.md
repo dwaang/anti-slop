@@ -1,6 +1,6 @@
 ---
 name: anti-slop
-description: Edit or draft Russian and English prose to remove AI clich?s, inflated claims and bureaucratic wording. Use for clearer, shorter UI copy, dialogue, documentation, descriptions and other text while preserving facts and the author's voice.
+description: Edit or draft Russian and English prose to remove AI cliches, inflated claims and bureaucratic wording. Use for clearer, shorter UI copy, dialogue, documentation, descriptions and other text while preserving facts and the author's voice.
 license: MIT
 metadata:
   version: "5.0.0"
@@ -23,9 +23,13 @@ For a draft, use only supplied or verified facts. For an edit, keep wording that
 - Prefer direct sentences. Keep passive voice when the actor is unknown or irrelevant.
 - Replace formulaic contrasts, dramatic fragments and stock conclusions when they add no meaning. Keep real comparisons, useful lists and intentional dialogue rhythm.
 - Treat stop-word lists as prompts to inspect context, never as a ban or search-and-replace dictionary. Technical terms, quotations and character speech may need those words.
-- Let sentence length follow meaning. Do not impose quotas on dashes, sentence lengths, list items or adverbs. Do not add slang, errors or fake personal anecdotes.
+- Let sentence length follow meaning. Do not impose quotas on sentence lengths, list items or adverbs. Do not add slang, errors or fake personal anecdotes.
 
 When shortening UI or game text, put the action or effect first. Cut repeated lore and instructions already shown nearby. Preserve costs, conditions, warnings, controls, reward rules and story clues. Keep translation keys, placeholders, markup, escapes and speaker prefixes intact; edit catalog values, not identifiers. Preserve a joke's setup and payoff rather than reducing every line to a label.
+
+## Punctuation
+
+Do not use em dashes (U+2014) or en dashes (U+2013) as prose punctuation. Use other dashes only when necessary, as rarely as possible. Rephrase with ordinary words or split the sentence instead of substituting a hyphen for an em dash. Preserve required minus signs, code, identifiers, URLs and quoted source text when exact reproduction is requested.
 
 ## Check and deliver
 
