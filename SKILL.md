@@ -1,112 +1,36 @@
 ---
 name: anti-slop
-description: >-
-  Eliminate AI writing patterns, corporate slop, and bureaucratic fluff from prose in Russian and English.
-  Use when drafting, editing, or reviewing text (game descriptions, dialog, docs, commits, PRs, essays)
-  to remove predictable AI tells: "not X, but Y", throat-clearing openers, tricolons/triads, empty adverbs,
-  dramatic fragments, buzzwords (delve, landscape, tapestry / «в современном мире», «стоит отметить»),
-  and restore natural human cadence, active voice, and burstiness.
+description: Edit or draft Russian and English prose to remove AI clich?s, inflated claims and bureaucratic wording. Use for clearer, shorter UI copy, dialogue, documentation, descriptions and other text while preserving facts and the author's voice.
 license: MIT
 metadata:
-  version: "4.0.0"
-  triggers:
-    - editing or reviewing text for AI patterns
-    - humanizing prose, removing slop or plastic tone
-    - drafting punchy game descriptions, dialogues, or documentation
+  version: "5.0.0"
 ---
 
-# Humanizer & Anti-Slop Guide: Writing Like a Human
+# Anti-slop
 
-Rewrite AI-sounding or bureaucratic text so it reads like an authentic, skilled human author. Preserve all factual claims, logic, and intent. Do not fabricate facts.
+Edit for meaning, clarity and the reader's task. Combine Stop-Slop's attention to filler with Humanizer's attention to voice and context. These are editorial heuristics, not an AI detector or a promise to evade one.
 
----
+## Work from the source
 
-## Why AI Text Sounds Plastic
+Read the supplied text and its context. Identify what the reader must understand or do. Preserve facts, uncertainty, names, tone, jokes and deliberate characterization. Never invent numbers, examples, experience, sources or product features to make prose sound concrete. Flag a questionable claim instead of quietly replacing it.
 
-Large Language Models choose statistically "safe" paths:
-1. **Staging instead of stating:** Signaling importance ("It's not just X, it's Y", "Let that sink in") instead of giving concrete facts.
-2. **Formulaic rhythm & lack of burstiness:** Equal-length sentences (18–24 words), lists always in groups of three, and constant em dashes (—).
-3. **Empty buzzwords & inflation:** Dressing ordinary facts as pivotal milestones (*delve, tapestry, robust / ключевой аспект, колоссальное значение, в современном мире*).
-4. **Bureaucratic passive voice:** Hiding actors (*«было принято решение», «направленный на обеспечение»*) and letting inanimate objects perform human actions.
+For a draft, use only supplied or verified facts. For an edit, keep wording that already works. Match the source language unless translation was requested.
 
-Real human writing is **uneven, specific, active, and direct**.
+## Edit
 
----
+- Remove introductions that only announce the topic, repeated explanations and unsupported praise.
+- Replace vague claims and noun chains with the actual action or consequence. If the source does not supply it, ask or leave the uncertainty explicit.
+- Prefer direct sentences. Keep passive voice when the actor is unknown or irrelevant.
+- Replace formulaic contrasts, dramatic fragments and stock conclusions when they add no meaning. Keep real comparisons, useful lists and intentional dialogue rhythm.
+- Treat stop-word lists as prompts to inspect context, never as a ban or search-and-replace dictionary. Technical terms, quotations and character speech may need those words.
+- Let sentence length follow meaning. Do not impose quotas on dashes, sentence lengths, list items or adverbs. Do not add slang, errors or fake personal anecdotes.
 
-## The 5 Golden Rules of Anti-Slop
+When shortening UI or game text, put the action or effect first. Cut repeated lore and instructions already shown nearby. Preserve costs, conditions, warnings, controls, reward rules and story clues. Keep translation keys, placeholders, markup, escapes and speaker prefixes intact; edit catalog values, not identifiers. Preserve a joke's setup and payoff rather than reducing every line to a label.
 
-1. **Cut throat-clearing & fillers:** Never announce what you are about to say (*"Here's why this matters:"*, *«Стоит отметить, что...»*). Start directly with the point.
-2. **Use active voice with human subjects:** Every sentence needs a clear actor doing something real.
-3. **Kill all empty adverbs & hedges:** Delete *really, just, virtually, essentially, undoubtedly / безусловно, фактически*. If an adjective or verb needs an adverb to sound strong, pick a better verb.
-4. **Vary cadence (Burstiness):** Mix sentence lengths drastically. Follow a 25-word analytical sentence with a 4-word punch. Two items beat three.
-5. **State facts, don't perform depth:** If a sentence sounds like a motivational pull-quote or a movie trailer voiceover, delete or ground it with numbers, dates, or specific names.
+## Check and deliver
 
----
+Compare the revision with the source: same facts, causality, uncertainty and intent? Any new claim? Any missing action, condition or joke? Check placeholders and formatting when editing structured content. Report only measurements actually taken.
 
-## Catalog of Critical Tells & Fixes
+Return the revised text by default. Add a short explanation only if requested or if a material ambiguity remains. Do not append a self-rating, audit table or claim that the result is guaranteed human.
 
-### 1. The "Not X, but Y" Formula (Antithesis Crutch)
-- **Watch for:** *Not just X, but Y*; *Not only X, but also Y*; *It's not X, it's Y*; *Не просто X, а Y*; *Дело не в X, а в Y*.
-- **Fix:** State Y directly. The negative half attacks an imaginary strawman.
-- **Example:**
-  - ❌ *It's not just a puzzle game; it's a test of nerve.*
-  - ✅ *The puzzle game tests your nerve under strict turn limits.*
-
-### 2. Throat-Clearing Openers
-- **Watch for:** *Here's the thing*, *Let me be clear*, *The uncomfortable truth is*, *At its core*, *«В современном динамично развивающемся мире...»*, *«Нельзя не упомянуть...»*, *«Стоит подчеркнуть...»*.
-- **Fix:** Delete the opener completely.
-
-### 3. Dramatic One-Liners & Micro-Closers
-- **Watch for:** *Full stop.*, *Let that sink in.*, *Read that again.*, *And that changes everything.*, *«И в этом кроется истинная сила.»*, *«Задумайтесь над этим.»*.
-- **Fix:** Cut the theatrical pause. Let facts speak.
-
-### 4. Forced Triads (Tricolon Addiction)
-- **Watch for:** Grouping everything into threes (*speed, simplicity, and power* / *быстро, надежно и удобно*).
-- **Fix:** Pick the 1–2 most accurate items.
-
-### 5. AI Hallmark Buzzwords
-- **English:** *delve, tapestry, testament, crucial, pivotal, paramount, intricate, dynamic, landscape (abstract), beacon, foster, leverage, harness, spearhead, bolster, showcase, revolutionize, streamline, elevate*.
-- **Russian:** *«в эпоху цифровизации», «играет ключевую роль», «является неотъемлемой частью», «открыть новые горизонты», «погрузиться в захватывающий мир», «уникальный», «гармоничный», «всесторонний»*.
-- See detailed tables in [references/stop-words-en.md](references/stop-words-en.md) and [references/stop-words-ru.md](references/stop-words-ru.md).
-
-### 6. Bureaucratic Noun Chains & Verbal Monsters (Канцелярит)
-- **Watch for:** *«Осуществлять деятельность по...»*, *«Способствовать повышению...»*, *«В целях реализации задачи обеспечения...»*.
-- **Fix:** Replace with simple, strong verbs: *«Разрабатывать»*, *«Ускорять»*, *«Чтобы защитить»*.
-
-### 7. Em Dash (—) Addiction
-- **Rule:** Never use more than one em dash per 3–4 paragraphs. Replace with a period (splitting into two punchy sentences), a comma, or parentheses.
-
-### 8. Shallow Participle Riders (-ing / деепричастия)
-- **Watch for:** *..., thereby fostering greater alignment.* / *..., тем самым обеспечивая масштабируемость.*
-- **Fix:** Replace the floating participle with a concrete result or separate sentence.
-
-### 9. Formatting Spoilage
-- Do not bold the first 2–3 words of every bullet point.
-- Remove decorative emojis (🚀, 💡, 🔥) from technical, game design, and business documentation.
-
----
-
-## 4-Step Humanization Workflow
-
-1. **Audit (Mark the Tells):** Scan for staging (*not X but Y*), openers, triads, passive voice, and buzzwords.
-2. **Extract Substance:** Isolate what actually happened or what is actually being claimed. Retain all technical facts, metrics, and logic.
-3. **Reshape Cadence & Voice:**
-   - Put a clear actor in the subject position.
-   - Alternate short and medium sentences.
-   - Replace abstract nouns with physical, concrete actions.
-4. **Run the Slop Filter (Scoring Matrix):**
-   Rate the rewritten text 1–10 on each:
-   - **Directness:** Statements, not announcements?
-   - **Rhythm (Burstiness):** Jagged and natural, or metronomic?
-   - **Trust:** Respects the reader's time and intelligence?
-   - **Authenticity:** Sounds like an experienced practitioner?
-   - **Density:** Zero fluff or cuttable padding?
-
----
-
-## Reference Guides
-
-- [English Stop-Words & Clichés](references/stop-words-en.md)
-- [Russian Neuro-Markers & Bureaucratisms](references/stop-words-ru.md)
-- [Structural Patterns & Syntax Tells](references/structural-patterns.md)
-- [Before & After Transformation Examples](references/examples.md)
+Read [examples](references/examples.md) for worked edits. Consult the [Russian](references/stop-words-ru.md), [English](references/stop-words-en.md) or [structure](references/structural-patterns.md) notes only when needed; the contextual rules above take precedence over older absolute prescriptions in those notes.

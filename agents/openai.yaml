@@ -1,0 +1,6 @@
+interface:
+  display_name: "Anti-slop"
+  short_description: "Clearer, shorter prose in Russian and English"
+  default_prompt: "Use $anti-slop to edit this text for clarity and brevity while preserving its facts and voice."
+policy:
+  allow_implicit_invocation: true

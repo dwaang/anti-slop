@@ -1,108 +1,64 @@
-# anti-slop 🚫✍️
+# Anti-slop
 
-> **The Universal Anti-Slop & Prose Humanizer Agent Skill for English & Russian.**  
-> Eliminates predictable AI clichés, robotic cadence, fake depth, and bureaucratic fluff. Restores punchy, authentic human voice.
+A writing skill for Russian and English. It removes filler, inflated claims and bureaucratic wording while preserving the facts and the author's voice.
 
----
+Use it for interface text, dialogue, descriptions, documentation and everyday prose. It draws on Stop-Slop and Humanizer editing approaches. It does not detect AI authorship or guarantee a particular detector score.
 
-## What is Anti-Slop?
+## Install as a skill
 
-Large Language Models (LLMs) default to statistically "safe", flattened prose:
-- **Staging over substance:** *"It's not just a game, it's a testament to..."* / *«Это не просто выбор, это философия...»*
-- **Throat-clearing openers:** *"Here's the thing:"*, *"At its core,"* / *«В современном динамично развивающемся мире...»*, *«Стоит отметить, что...»*
-- **Monotonous rhythm (Lack of Burstiness):** Uniform sentences (18–24 words) marching in lockstep, lists forced into groups of three (tricolons), and em dashes (—) everywhere.
-- **Hollow buzzwords:** *delve, tapestry, pivotal, robust, landscape, beacon / ключевой аспект, колоссальное значение, уникальный*.
-- **Bureaucratic passive voice (Канцелярит):** *«было принято решение»*, *«осуществлять деятельность по обеспечению»*.
+This repository contains an agent skill, not an application extension or an always-on text filter. Your assistant must discover and load `SKILL.md` before its instructions can affect an answer.
 
-**`anti-slop`** is an agent skill that forces AI coding assistants and writers (Antigravity, OpenAI Codex, Claude Code, Cursor, Windsurf) to write with **genuine human burstiness, active voice, authentic density, and zero marketing syrup**.
+For Codex on this Windows setup:
 
----
+```powershell
+git clone https://github.com/dwaang/anti-slop.git "$HOME/.codex/skills/anti-slop"
+```
 
-## ⚡ The 5 Golden Rules
+For Claude Code, clone into your project's `.claude/skills/anti-slop` directory. If the target already exists, update that checkout instead of cloning another nested folder. The resulting path must be `anti-slop/SKILL.md`, not `anti-slop/anti-slop/SKILL.md`.
 
-1. **Cut throat-clearing:** Start directly with the point. Never announce what you are about to say.
-2. **Use active voice:** Real human subjects performing concrete actions.
-3. **Kill empty adverbs & hedges:** Delete *really, just, virtually, essentially / безусловно, фактически*.
-4. **Vary cadence (Burstiness):** Alternate ultra-short sentences with detailed, data-backed clauses. Two items beat three.
-5. **State facts, don't perform depth:** If a sentence sounds like a motivational pull-quote or movie trailer, cut it or ground it in specific facts and metrics.
-
----
-
-## 📂 Repository Structure
+Start a new assistant session after installation. In Codex, explicitly invoke:
 
 ```text
-anti-slop/
-├── SKILL.md                          # Main skill instructions & YAML frontmatter
-├── README.md                         # Documentation & installation guide
-├── LICENSE                           # MIT License
-└── references/
-    ├── stop-words-en.md              # English AI buzzwords, fillers & business jargon
-    ├── stop-words-ru.md              # Канцелярит, маркеры нейросетей и штампы на русском
-    ├── structural-patterns.md        # Syntax tells: tricolons, antithesis, -ing riders, dash abuse
-    └── examples.md                   # Real Before/After transformations (EN & RU)
+Use $anti-slop to shorten this text without changing its meaning:
+[paste text]
 ```
 
----
+Automatic selection depends on the host and the request. `agents/openai.yaml` permits implicit invocation; it cannot force a host to load the skill. A `metadata.triggers` list is not an activation hook. For other assistants, follow their documented skill discovery mechanism or supply `SKILL.md` explicitly; installation paths are not interchangeable.
 
-## 🚀 Installation & Usage
+## Examples
 
-### 1. Antigravity (Google / AGY)
-Copy the folder to your global skills or project:
-```bash
-# Global installation (recommended)
-cp -r anti-slop ~/.gemini/config/skills/anti-slop
-```
-Or add to `~/.gemini/config/skills.json`:
-```json
-{
-  "entries": [
-    { "path": "/path/to/anti-slop" }
-  ]
-}
-```
+### Interface (RU)
 
-### 2. OpenAI Codex / CLI
-```bash
-cp -r anti-slop ~/.codex/skills/anti-slop
-```
+Before: «Для осуществления перехода к следующему сектору необходимо нажать кнопку „Продолжить“».
 
-### 3. Claude Code / Cursor / Windsurf
-- For **Claude Code**: place in `.claude/skills/anti-slop/`
-- For **Cursor / Windsurf**: place in `.agents/skills/anti-slop/` or reference `SKILL.md` in `.cursorrules`.
+After: «Нажми „Продолжить“, чтобы открыть следующий сектор».
 
----
+The action and result stay; the noun chain goes.
 
-## 🧪 Before & After Quick Comparison
+### Game description (EN)
 
-### English (Game Pitch)
-> **AI Slop:**  
-> *"Welcome to Memseum, an extraordinary rogue-lite expedition where history meets hilarity. In today's digital landscape, it's not just a game; it's a testament to the enduring power of internet humor. Delve into intricate grids with robust synergies. Let that sink in."*
+Before: ?Explore an extraordinary world of forgotten memes. It's not just excavation; it's a journey through internet history. Spend bandwidth to clear cells and recover relics.?
 
-> **Anti-Slop:**  
-> *"In Memseum, you excavate forgotten internet relics across procedurally generated grid maps. Each dig costs bandwidth. Find legendary memes, pin them in your museum for passive yield, and combine synergistic tags like Cat, Tech, and Glitch."*
+After: ?Spend bandwidth to clear cells and recover forgotten internet relics.?
 
-### Russian (Game Pitch / Техническое описание)
-> **AI Slop:**  
-> *«Погрузитесь в захватывающий мир Memseum — уникального проекта на стыке рогалика и археологии интернет-фольклора! В современном динамично развивающемся мире мемы играют колоссальную роль. Нами была осуществлена деятельность по переработке синергий, тем самым выводя геймплей на беспрецедентный уровень. Задумайтесь над этим.»*
+No mechanics or statistics were added to replace the hype.
 
-> **Anti-Slop:**  
-> *«Memseum — пошаговая игра про раскопки забытых мемов. Вы тратите трафик (BW) на расчистку клеток, находите реликвии вроде Древнего Баяна и выставляете их в собственном музее. У 73% артефактов 1 синергетический тег, у легендарных — 3. Каждая синергия дает понятный числовой бонус к доходу или силе инструментов.»*
+### Character voice (RU)
 
----
+Before: «КЭШ: Стоит отметить, что пароль был написан на обороте. Очень надёжно».
 
-## 📊 5-Dimension Scoring Matrix
+After: «КЭШ: Пароль на обороте. Очень надёжно».
 
-Before delivering prose, evaluate against:
-- **Directness (1–10):** Statements or throat-clearing announcements?
-- **Rhythm / Burstiness (1–10):** Natural cadence with varied sentence length, or metronomic robot drone?
-- **Trust (1–10):** Respects reader intelligence without over-explaining or hand-holding?
-- **Authenticity (1–10):** Sounds like an experienced practitioner who actually built the thing?
-- **Density (1–10):** Every sentence adds a new fact or consequence; zero fluff.
+The dry joke stays.
 
-*(Revise if total score is below 40/50).*
+### Keep what works
 
----
+?Do not close the app while saving.? stays unchanged. The warning needs its negative construction.
 
-## License
+## Troubleshooting
 
-MIT © [dwaang](https://github.com/dwaang)
+If edits look unchanged, first explicitly invoke the skill on a paragraph containing filler. Check that the host lists `anti-slop`, that `SKILL.md` has valid YAML frontmatter, and that the installation is not nested. Do not expect an already running session to reload files automatically.
+
+The former version used rigid rhythm rules and illustrative metrics that were not present in its source examples. Version 5 replaces these with a source comparison and context-sensitive edits. Real installation and model behavior still need checking in each supported host.
+
+More examples: [references/examples.md](references/examples.md). License: [MIT](LICENSE).
