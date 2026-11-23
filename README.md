@@ -29,6 +29,8 @@ Automatic selection depends on the host and the request. `agents/openai.yaml` pe
 
 Use words and ordinary sentence structure instead of em or en dashes. Keep other dashes to a minimum. This applies to prose, not required code, URLs or minus signs.
 
+Never separate words or values with a middle dot (`·`) or a bullet (`•`), including in UI text. Use a sentence, a comma, a colon, a new line, or an em space for a layout gap.
+
 ## Examples
 
 ### Interface (RU)

@@ -31,6 +31,8 @@ When shortening UI or game text, put the action or effect first. Cut repeated lo
 
 Do not use em dashes (U+2014) or en dashes (U+2013) as prose punctuation. Use other dashes only when necessary, as rarely as possible. Rephrase with ordinary words or split the sentence instead of substituting a hyphen for an em dash. Preserve required minus signs, code, identifiers, URLs and quoted source text when exact reproduction is requested.
 
+Never use the middle dot (U+00B7 `·`) or the bullet (U+2022 `•`) as a separator between words, labels, values or list items, in any language, including UI strings, buttons, tooltips, menus and status lines. It is a stock pattern of generated text. Write the parts as a sentence, use a comma or colon, put them on separate lines, or separate a label from its value with an em space (U+2003) when the layout needs a gap. Remove existing ones when you edit text.
+
 ## Check and deliver
 
 Compare the revision with the source: same facts, causality, uncertainty and intent? Any new claim? Any missing action, condition or joke? Check placeholders and formatting when editing structured content. Report only measurements actually taken.
